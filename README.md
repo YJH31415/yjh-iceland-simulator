@@ -1,20 +1,6 @@
 # YJH's Iceland Volcano Simulator
 
-A browser-based scientific prototype for studying the 2010 Eyjafjallajökull ash dispersal event.
-
-## Current status
-
-This repository starts with the application shell, interactive globe, configurable reconstruction/experiment modes, city alert panel, statistics export scaffolding, and a clearly-labelled **synthetic demonstration solver**.
-
-**Scientific-data warning:** the demonstration solver is not a reconstruction of the 2010 event. Do not interpret its output as observed or validated ash concentrations. The production solver must ingest archived ERA5 pressure-level fields and documented eruption source data before scientific use.
-
-## Stack
-
-- React + TypeScript + Vite
-- MapLibre GL JS
-- Three-dimensional Eulerian ash concentration state (prototype)
-- Web Worker-ready simulation architecture
-- Browser-side JSON/CSV export scaffolding
+A browser-based scientific prototype for exploring the 2010 Eyjafjallajökull ash dispersal event.
 
 ## Run locally
 
@@ -23,16 +9,27 @@ npm install
 npm run dev
 ```
 
-## Planned scientific implementation
+## Current implementation
 
-1. ERA5 pressure-level and surface meteorological data ingestion.
-2. Resumable, tiled download manifest with checksums and provenance.
-3. Spherical grid geometry and vector-based wind interpolation.
-4. Conservative finite-volume advection, diffusion and sedimentation.
-5. Size-bin-resolved mass concentration fields and deposition budgets.
-6. 30-minute diagnostics and reproducible experiment manifests.
-7. Validation against satellite, lidar, VAAC and deposition observations.
+- React + TypeScript + Vite application shell.
+- MapLibre map centered on the North Atlantic and Europe.
+- Reconstruction and experiment UI modes.
+- Timeline playback controls and playback-speed selector.
+- City monitor for London, Paris, Frankfurt, Oslo and Stockholm.
+- Layer toggles, schematic plume footprint and JSON snapshot export.
+- Responsive desktop/mobile layout.
 
-## Data provenance
+## Scientific integrity notice
 
-Every production dataset must record its provider, product, grid, temporal coverage, units, retrieval timestamp, license and checksum. Missing data must never be silently replaced with fabricated observations.
+**This first milestone is a user-interface prototype, not a physical simulation or a reconstruction of the 2010 event.** Plume geometry, city concentrations, altitude, dispersion range, active-cell count and trend values are synthetic placeholders. They must not be interpreted as measurements, validated model output, exposure estimates or aviation guidance.
+
+## Planned scientific milestones
+
+1. Ingest documented ERA5 pressure-level and surface meteorological data with provenance, units and checksums.
+2. Build spherical grid geometry and interpolate wind as vector components (u/v), not wind-direction angles.
+3. Implement a conservative finite-volume Eulerian solver with size-resolved ash bins, advection, diffusion, sedimentation and deposition.
+4. Add a documented eruption source term and plume-rise parameterization.
+5. Validate against satellite, lidar, VAAC and deposition observations.
+6. Replace all synthetic display values with solver output and expose uncertainty and mass-balance diagnostics.
+
+Production datasets must record provider, product, grid, temporal coverage, units, retrieval time, license and checksum. Missing observations must never be silently replaced with fabricated values.
