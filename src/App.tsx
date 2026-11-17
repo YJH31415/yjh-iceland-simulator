@@ -38,7 +38,7 @@ export default function App() {
         sources: { osm: { type: "raster", tiles: ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png", "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png", "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png"], tileSize: 256, attribution: "© OpenStreetMap contributors" } },
         layers: [{ id: "base", type: "raster", source: "osm", paint: { "raster-saturation": -0.78, "raster-contrast": 0.12, "raster-brightness-min": 0.12, "raster-brightness-max": 0.75 } }],
       },
-      attributionControl: true,
+      attributionControl: { compact: true },
     });
     map.addControl(new maplibregl.NavigationControl(), "top-right");
     map.on("load", () => {
