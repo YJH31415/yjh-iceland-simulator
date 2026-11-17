@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// GitHub Pages serves this repository from /yjh-iceland-simulator/.
 export default defineConfig({
-  base: "/yjh-iceland-simulator/",
+  // Relative asset paths work both on GitHub Pages project sites and locally.
+  base: "./",
   plugins: [react()],
   server: { host: "0.0.0.0" },
 });
